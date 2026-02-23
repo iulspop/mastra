@@ -113,5 +113,33 @@
     "@mastra/gcs": "0.1.1",
     "@mastra/s3": "0.2.0"
   },
-  "changesets": []
+  "changesets": [
+    "@mastra_rag-13318-dependencies",
+    "calm-monkeys-find",
+    "cuddly-worms-film",
+    "curly-jeans-run",
+    "cyan-toys-relate",
+    "e2b-process-manager",
+    "eighty-geese-cut",
+    "fast-jars-eat",
+    "fix-stopwhen-tool-results",
+    "forty-pigs-march",
+    "harness-expose-om-record",
+    "improve-scorer-null-values-studio-core",
+    "improve-scorer-null-values-studio-ui",
+    "model-id-co-author",
+    "prompt-block-client",
+    "prompt-block-playground",
+    "prompt-block-storage",
+    "proud-lizards-decide",
+    "quiet-kids-cross",
+    "sandbox-process-manager",
+    "sandbox-workspace-tools",
+    "slimy-geckos-play",
+    "sweet-stars-drum",
+    "true-masks-try",
+    "tui-banner-header",
+    "warm-bears-brake",
+    "yummy-waves-battle"
+  ]
 }
