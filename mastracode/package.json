@@ -19,7 +19,8 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
-    "mscode": "./dist/cli.js"
+    "mscode": "./dist/cli.js",
+    "mscode-run": "./dist/headless.js"
   },
   "exports": {
     ".": {
