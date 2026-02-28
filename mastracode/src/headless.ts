@@ -152,6 +152,18 @@ async function main() {
   // ── Subscribe to events ──────────────────────────────────────────────────
   const done = new Promise<number>(resolve => {
     harness.subscribe(event => {
+      // Handle untyped sandbox_access_request event (emitted as `any` by the tool)
+      const ev = event as any;
+      if (ev.type === 'sandbox_access_request') {
+        harness!.respondToQuestion({ questionId: ev.questionId, answer: 'Yes' });
+        if (args.format === 'json') {
+          emit!({ type: 'sandbox_access_request', path: ev.path, reason: ev.reason, autoApproved: true });
+        } else {
+          process.stderr.write(`[auto-approved sandbox] ${ev.path}\n`);
+        }
+        return;
+      }
+
       if (args.format === 'json') {
         emit!({ type: event.type, ...event });
         if (event.type === 'agent_end') {
@@ -210,7 +222,7 @@ async function main() {
 
         case 'tool_approval_required':
           // Auto-approve everything in headless mode
-          harness.respondToToolApproval({ toolCallId: event.toolCallId, decision: 'approve' });
+          harness.respondToToolApproval({ decision: 'approve' });
           process.stderr.write(`[auto-approved] ${event.toolName}\n`);
           break;
 
